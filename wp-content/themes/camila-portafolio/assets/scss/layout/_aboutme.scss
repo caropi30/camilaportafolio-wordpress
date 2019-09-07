@@ -1,0 +1,67 @@
+.aboutme {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 30% 40% 30%;
+	background-color: $purple-rain;
+	font-family: $montserrat;
+	padding: 1em;
+
+	&__info {
+		display: grid;
+		grid-template-rows: 2fr;
+
+		@media (min-width: 320px) and (max-width: 768px) {
+			
+			.container {
+				padding: 0;
+			}
+		}
+
+		
+		&__title {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 20% 60% 20%;
+
+			@media (min-width: 320px) and (max-width: 768px) {		
+				grid-template-columns: 100%;
+			}
+
+			&-upper {
+				border-top: 1em solid $funny-pink;
+				color: $white;
+				font-size: $xxxxx-large;
+				font-weight: $bold;
+			}
+
+			&-lower {
+				color: $white;
+				text-align: left;
+				font-size: $xxxx-large;
+				font-weight: $bold;
+			}
+		} 
+
+		&__text {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 10% 80% 10%;
+			text-align: center;
+			padding: 3em;
+			color: $white;
+			font-weight: $light;
+			font-size: $medium;
+
+			@media (min-width: 320px) and (max-width: 768px) {
+				text-align: left;		
+				grid-template-columns: 100%;
+				padding: 0;
+			}
+		}
+	}
+
+	@media (min-width: 320px) { 
+		display: grid;
+		grid-template-columns: 100%;
+	}
+}

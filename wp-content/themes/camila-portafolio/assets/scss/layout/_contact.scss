@@ -1,0 +1,138 @@
+.contact {
+	display: grid;
+	grid-auto-rows: 1fr;
+	grid-template-columns: 50% 50%;
+	font-family: $montserrat;
+
+	@media (min-width: 320px) and (max-width: 768px) {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-auto-rows: auto;
+	}
+
+
+	&__rightside{
+		display: flex;
+		align-items: center;
+		background-color: $purple-rain;
+		font-weight: $light;
+		
+		&__formo {
+			padding: 5em;
+
+			&-place {
+
+				input, textarea {
+					font-size: $small;
+					border: 1px solid $funny-pink;
+					background-color: $purple-rain;
+					padding: 2em;
+				}
+			}
+
+			&-button {
+				margin-top: 3em;
+				width: 100%;
+				height: 3em;
+				background-color: $funny-pink;
+				border: none;
+				font-weight: $bold;
+				font-size: $medium;
+			}
+
+			@media (min-width: 320px) and (max-width: 768px) {
+				padding: 0;
+			    padding-top: 2em;
+			    padding-bottom: 2em;
+			}	
+
+		}
+
+		&--pink {
+			padding: 5em;
+
+			&-place {
+
+				input, textarea {
+					font-size: $small;
+					border: 1px solid $honey;
+					background-color: $purple-rain;
+					padding: 2em;
+				}
+			}
+
+			&-button {
+				margin-top: 3em;
+				width: 100%;
+				height: 3em;
+				background-color: $honey;
+				border: none;
+				font-weight: $bold;
+				font-size: $medium;
+			}
+		}
+
+	}
+
+	&__leftside {
+		display: grid;
+		grid-template-rows: 2fr;
+
+		@media (min-width: 320px) and (max-width: 768px) {		
+			display: inherit;
+		}
+
+		&__title {
+			display: flex;
+			flex-direction: row;
+			color: $funny-pink;
+			font-size: $xxxxx-large;
+
+			&-first {
+				border-bottom: .5em solid $purple-rain;
+				font-weight: $bold;
+				font-size: $xxxxx-large;
+
+				@media (min-width: 320px) and (max-width: 768px) {	
+					padding-top: 1em;
+				}
+			}
+
+			&-second {
+				font-weight: $bold;
+				font-size: $xxxxx-large;
+			}
+
+			@media (min-width: 320px) and (max-width: 576px) {		
+				display: inherit;
+			}
+		}
+
+		&__info {
+			display: flex;
+			align-items: center;
+			padding: 3em;
+			font-family: $montserrat;
+			color: $gray;
+
+			&-icon {
+				width: 50px;
+				color: $funny-pink
+			}
+
+			&-text {
+				padding-left: 1.5em;
+			}
+
+			@media (min-width: 320px) and (max-width: 768px) {		
+				padding: 2em;
+			}
+		}
+	}
+
+	&__text {
+		color: $purple-rain;
+		text-align: center;
+		font-size: $large;
+	}
+}

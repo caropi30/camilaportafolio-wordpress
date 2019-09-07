@@ -1,0 +1,871 @@
+@charset "UTF-8";
+/**
+  * Patrón 7-1
+  *
+  * Esta es la estructura del patrón 7-1 utilizado en DesafíoLatam
+  * para la enseñanza del uso correcto de patrones dentro de CSS y
+  * también para la utilización de éste dentro de estructuras de 
+  * trabajo colaborativo.
+  *
+  * @author Cristóbal Domínguez <cristobald@me.com>
+  * @since 1.1
+  *
+  */
+/*
+ *
+ * La mayoría de los proyectos tienen una carpeta vendors/ que contiene
+ * todos los archivos CSS de librerías externas y frameworks – Normalize,
+ * Bootstrap, jQuery, jQueryUI, Flickity, Flexslider y así sucesivamente.
+ * Agregando estos en una carpeta aparte podría ser una buena forma de 
+ * decir: “Hey, esto no es mío, no es mi código, no es mi responsabilidad”.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * La carpeta abstracts/ reune todas las herramientas de SASS para el proyecto.
+ * Cada variable global, función, mixin o placeholder debería estar aquí dentro.
+ * 
+ * La regla de oro para esta carpeta es que no deberá imprimir ni una sola línea
+ * de código en el momento de la compilación del CSS. Nada como los helpers de Sass.
+ * 
+ * Cuando se trabaja en un proyecto muy grande con muchos archivos abstracts, podría
+ * ser más interesante agruparlos por tópicos en vez de por tipo. Un ejemplo sería
+ * crear las instancias typography (_typography.scss), theming (_theming.scss), etc.
+ * Cada archivo contendría todos los helpers relacionados a esa instancia: variables, 
+ * functions, mixins y placeholders. Hacerlo así podría hacer el código más sencillo de 
+ * de mantener, especialmente cuando los archivos empiezan a crecer mucho.
+ * 
+ * Nota:
+ * La carpeta abstracts/ podría llamarse utilities/ o helpers/, dependiendo de lo que
+ * se prefiera.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Este archivo contiene las referencias del código boilerplate de tu proyecto.
+ * Aquí podrás encontrar referencias al archivo _reset.scss, a las tipografías
+ * y probablemente algún otro archivo de estilos que defina de una forma estándard
+ * los estilos de elementos usados en HTML.
+ *
+ *
+ * Nota: 
+ * Si tu proyecto usa muchas animaciones, deberías considerar agregar dentro de
+ * esta carpeta un archivo /_animations.scss que contenga las definiciones de los
+ * @keyframes de todas tus animaciones.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+body {
+  margin: 0;
+}
+
+/*
+ *
+ * En sitios/aplicaciones grandes es usual tener distintos temas o 
+ * themes implementados. Hay diferentes caminos para lidiar con ese
+ * problema, sin embargo uno de los más sencillos, a mi parecer, sería
+ * tener cada theme dentro de su carpeta.
+ * 
+ * Nota:
+ * La creación de esta carpeta es muy específica a cada proyecto, 
+ * probablemente la mayoría de los sitio/aplicaciones no la necesitarán.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Esta carpeta contiene todo lo que hace relación con el sitio web o la aplicación.
+ * Aquí encontrarás los estilos para las partes principales del sitio (header, footer, 
+ * navigation, sidebar, etc), el sistema de grillas o incluso los estilos de los formularios
+ *
+ *
+ * Nota:
+ * La carpeta layout/ también podría ser llamada partials/, dependiendo de la 
+ * preferencia del desarrollador.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+.navbar {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-lg {
+  display: none;
+}
+
+.navbar-sm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2em;
+  background-color: #330066;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-weight: 10px;
+  color: #fff;
+  border-bottom: 0.2px solid #BE81F7;
+  text-align: left;
+}
+.navbar-sm .navbar__icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-sm .navbar__logo-image {
+  width: 100px;
+}
+.navbar-sm .navbar__menu__icon img {
+  width: 50px;
+}
+.navbar-sm .navbar__menu__icon-2 img {
+  width: 50px;
+}
+.navbar-sm .navbar__menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 0.5em;
+}
+.navbar-sm .navbar__menu__list__item {
+  color: #fff;
+  padding: 1em 0;
+}
+.navbar-sm .navbar__menu__list__item:hover {
+  text-decoration: none;
+  color: #e91e63;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-sm {
+    display: none;
+  }
+
+  .navbar-lg {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 10% 20% 60% 10%;
+    background-color: #330066;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-weight: 10px;
+    color: #fff;
+    border-bottom: 0.2px solid #BE81F7;
+    text-align: left;
+  }
+  .navbar-lg .navbar__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px;
+  }
+  .navbar-lg .navbar__logo-image {
+    width: 100px;
+  }
+  .navbar-lg .navbar__menu {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+  }
+  .navbar-lg .navbar__menu__list {
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+  }
+  .navbar-lg .navbar__menu__list__item {
+    padding: 1.5em;
+    color: #fff;
+  }
+  .navbar-lg .navbar__menu__list__item:hover {
+    text-decoration: none;
+    color: #e91e63;
+  }
+  .navbar-lg .navbar__menu__icon {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .navbar-lg .navbar__menu__icon img {
+    max-width: 100%;
+    height: auto;
+    width: 20%;
+  }
+}
+.aboutme {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 30% 40% 30%;
+  background-color: #330066;
+  font-family: "Montserrat", sans-serif;
+  padding: 1em;
+}
+.aboutme__info {
+  display: grid;
+  grid-template-rows: 2fr;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .aboutme__info .container {
+    padding: 0;
+  }
+}
+.aboutme__info__title {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 20% 60% 20%;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .aboutme__info__title {
+    grid-template-columns: 100%;
+  }
+}
+.aboutme__info__title-upper {
+  border-top: 1em solid #e91e63;
+  color: #fff;
+  font-size: 80px;
+  font-weight: 700;
+}
+.aboutme__info__title-lower {
+  color: #fff;
+  text-align: left;
+  font-size: 45px;
+  font-weight: 700;
+}
+.aboutme__info__text {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 10% 80% 10%;
+  text-align: center;
+  padding: 3em;
+  color: #fff;
+  font-weight: 300;
+  font-size: 16px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .aboutme__info__text {
+    text-align: left;
+    grid-template-columns: 100%;
+    padding: 0;
+  }
+}
+@media (min-width: 320px) {
+  .aboutme {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+.hero {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 20% 60% 20%;
+  background-color: #330066;
+  font-family: "Montserrat", sans-serif;
+}
+.hero__title {
+  padding: 10em;
+  text-align: center;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .hero__title {
+    padding: 0;
+  }
+}
+.hero__title-text-upper {
+  color: #fff;
+  font-weight: 300;
+  font-size: 40px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .hero__title-text-upper {
+    padding-top: 1em;
+  }
+}
+.hero__title-text-lower {
+  color: #e91e63;
+  font-weight: 800;
+  font-size: 80px;
+  padding-bottom: 1em;
+}
+@media (min-width: 320px) {
+  .hero__title-text-lower {
+    font-size: 60px;
+  }
+}
+.hero__title-text--contact {
+  font-weight: 700;
+  font-size: 80px;
+  color: #330066;
+}
+.hero--yellow {
+  background-color: #f9c546;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+.contact {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 50% 50%;
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .contact {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+  }
+}
+.contact__rightside {
+  display: flex;
+  align-items: center;
+  background-color: #330066;
+  font-weight: 300;
+}
+.contact__rightside__formo {
+  padding: 5em;
+}
+.contact__rightside__formo-place input, .contact__rightside__formo-place textarea {
+  font-size: 14px;
+  border: 1px solid #e91e63;
+  background-color: #330066;
+  padding: 2em;
+}
+.contact__rightside__formo-button {
+  margin-top: 3em;
+  width: 100%;
+  height: 3em;
+  background-color: #e91e63;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .contact__rightside__formo {
+    padding: 0;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+.contact__rightside--pink {
+  padding: 5em;
+}
+.contact__rightside--pink-place input, .contact__rightside--pink-place textarea {
+  font-size: 14px;
+  border: 1px solid #f9c546;
+  background-color: #330066;
+  padding: 2em;
+}
+.contact__rightside--pink-button {
+  margin-top: 3em;
+  width: 100%;
+  height: 3em;
+  background-color: #f9c546;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+.contact__leftside {
+  display: grid;
+  grid-template-rows: 2fr;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .contact__leftside {
+    display: inherit;
+  }
+}
+.contact__leftside__title {
+  display: flex;
+  flex-direction: row;
+  color: #e91e63;
+  font-size: 80px;
+}
+.contact__leftside__title-first {
+  border-bottom: 0.5em solid #330066;
+  font-weight: 700;
+  font-size: 80px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .contact__leftside__title-first {
+    padding-top: 1em;
+  }
+}
+.contact__leftside__title-second {
+  font-weight: 700;
+  font-size: 80px;
+}
+@media (min-width: 320px) and (max-width: 576px) {
+  .contact__leftside__title {
+    display: inherit;
+  }
+}
+.contact__leftside__info {
+  display: flex;
+  align-items: center;
+  padding: 3em;
+  font-family: "Montserrat", sans-serif;
+  color: #BABABA;
+}
+.contact__leftside__info-icon {
+  width: 50px;
+  color: #e91e63;
+}
+.contact__leftside__info-text {
+  padding-left: 1.5em;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .contact__leftside__info {
+    padding: 2em;
+  }
+}
+.contact__text {
+  color: #330066;
+  text-align: center;
+  font-size: 20px;
+}
+
+.services {
+  display: grid;
+  grid-template-rows: 2fr;
+  grid-template-columns: 20% 60% 20%;
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+.services__readme {
+  display: grid;
+  grid-template-rows: 2fr;
+  margin: 2em;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .services__readme {
+    margin: 0;
+  }
+  .services__readme .container {
+    padding: 0;
+  }
+}
+.services__readme__title {
+  display: grid;
+  grid-template-rows: 2fr;
+  margin: auto;
+  color: #e91e63;
+  font-family: "Montserrat", sans-serif;
+}
+.services__readme__title__item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  align-content: center;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 45px;
+  color: #e91e63;
+  padding: 10px;
+  text-align: center;
+}
+.services__readme__title__item-higher {
+  font-weight: 700;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .services__readme__title__item-higher {
+    text-align: left;
+    padding-top: 1em;
+  }
+}
+.services__readme__title__item-medium {
+  font-weight: 800;
+  font-size: 80px;
+  color: #e91e63;
+}
+.services__readme__text {
+  margin: 1em;
+  text-align: center;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .services__readme__text {
+    text-align: left;
+  }
+}
+.services__items {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 33% 33% 33%;
+  padding: 2em;
+  text-align: center;
+}
+.services__items-icon {
+  width: 100%;
+  background-color: tomato;
+}
+.services__items-text {
+  font-size: 16px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .services {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+.portfolio {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 50% 50%;
+}
+.portfolio__title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: auto;
+  color: #e91e63;
+  font-family: "Montserrat", sans-serif;
+}
+.portfolio__title__upper {
+  font-size: 80px;
+  font-weight: 700;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .portfolio__title__upper {
+    padding-top: 1em;
+  }
+}
+.portfolio__title__lower {
+  border-top: 1em solid #330066;
+  padding-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .portfolio__title {
+    display: inline;
+  }
+}
+.portfolio__side {
+  display: grid;
+  grid-template-rows: 2fr;
+}
+.portfolio__side__menu {
+  display: grid;
+  grid-template-rows: 2fr;
+  background-color: #e91e63;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+}
+.portfolio__side__menu__list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: auto;
+  align-items: baseline;
+  padding: 3em;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .portfolio__side__menu__list {
+    margin: 0;
+  }
+}
+.portfolio__side__menu__list-item {
+  padding-right: 1em;
+  padding-left: 1em;
+  border-right: 1px solid #fff;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .portfolio__side__menu__list-item {
+    border-right: none;
+  }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .portfolio__side__menu__list {
+    display: block;
+  }
+}
+.portfolio__lowerside {
+  display: grid;
+  grid-template-rows: 2fr;
+  padding: 2em;
+  background-color: #F5EFFB;
+  font-family: "Montserrat", sans-serif;
+}
+.portfolio__lowerside__title {
+  font-weight: 700;
+  color: #330066;
+  padding-left: 1em;
+  font-size: 20px;
+}
+.portfolio__lowerside__logo {
+  display: flex;
+  flex-direction: flex-row;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+  width: 100%;
+}
+.portfolio__lowerside img {
+  max-width: 100%;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .portfolio {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+/*
+ * 
+ * Esta carpeta fue creada para componentes o módulos pequeños como por ejemplo: 
+ * sliders, loaders, widgets, etc. A diferencia de la carpeta layout/ donde almacenaremos
+ * los componentes que definan el wireframe del sitio/aplicación, aquí encontraremos
+ * componentes que aportarán más contenido que una estructura visual.
+ * 
+ * Usualmente deberían haber muchos archivos en components/ debido a que los 
+ * sitios/aplicaciones se empezaron a crear en base a pequeños módulos de código.
+ * 
+ * Nota:
+ * Esta carpeta también se podría llamar modules/, dependiendo de cómo tu la prefieras.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Esta carpeta contiene todo lo que hace relación con el sitio web o la aplicación.
+ * Aquí encontrarás los estilos para las partes principales del sitio (header, footer, 
+ * navigation, sidebar, etc), el sistema de grillas o incluso los estilos de los formularios
+ *
+ *
+ * Nota:
+ * La carpeta layout/ también podría ser llamada partials/, dependiendo de la 
+ * preferencia del desarrollador.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+.single {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  font-family: "Montserrat", sans-serif;
+}
+.single__rightside {
+  padding: 5em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #f9c546;
+}
+.single__rightside__image {
+  width: 100%;
+}
+.single__leftside {
+  margin: auto;
+  padding: 5em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.single__leftside h3 {
+  font-size: 30px;
+}
+.single__leftside h2 {
+  font-size: 40px;
+  font-weight: 700;
+  padding-bottom: 1em;
+  color: #330066;
+}
+
+/*
+ *
+ * Esta carpeta contiene todo lo que hace relación con el sitio web o la aplicación.
+ * Aquí encontrarás los estilos para las partes principales del sitio (header, footer, 
+ * navigation, sidebar, etc), el sistema de grillas o incluso los estilos de los formularios
+ *
+ *
+ * Nota:
+ * La carpeta layout/ también podría ser llamada partials/, dependiendo de la 
+ * preferencia del desarrollador.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+.services_page {
+  display: grid;
+  grid-template-rows: 2fr;
+  grid-template-columns: 30% 40% 30%;
+  background-color: #e91e63;
+  font-family: "Montserrat", sans-serif;
+}
+.services_page__readme {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  margin: 2em;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+.services_page__readme__title {
+  display: grid;
+  grid-template-rows: 2fr;
+  margin: auto;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  padding: 7em;
+}
+.services_page__readme__title__item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  align-content: center;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 45px;
+  color: #e91e63;
+  padding: 10px;
+  text-align: center;
+}
+.services_page__readme__title__item-higher {
+  font-weight: 700;
+}
+.services_page__readme__title__item-medium {
+  font-weight: 800;
+  font-size: 80px;
+  color: #fff;
+}
+
+.graphic__container {
+  padding-bottom: 3em;
+  background-color: #f9c546;
+}
+
+.graphic_content__first__logo {
+  display: none;
+}
+.graphic_content__first, .graphic_content__second {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 10% 80% 10%;
+  background-color: #f9c546;
+}
+.graphic_content__first__title, .graphic_content__second__title {
+  margin: auto;
+  font-family: "Montserrat", sans-serif;
+  color: #F5EFFB;
+}
+.graphic_content__first__logo, .graphic_content__second__logo {
+  width: 100%;
+  background-color: #330066;
+}
+.graphic_content__first__logo__image, .graphic_content__second__logo__image {
+  margin: auto;
+  width: 100%;
+}
+.graphic_content__first__side1, .graphic_content__second__side1 {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin: auto;
+}
+.graphic_content__first__side1__title, .graphic_content__second__side1__title {
+  display: flex;
+  align-items: flex-end;
+  color: #330066;
+  font-size: 45px;
+  font-weight: 700;
+}
+.graphic_content__first__side1__text, .graphic_content__second__side1__text {
+  font-size: 14px;
+}
+.graphic_content__first__side1__button, .graphic_content__second__side1__button {
+  background-color: #330066;
+  border: 1px solid #330066;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-size: 14px;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .graphic__container {
+    padding-bottom: 0;
+  }
+
+  .graphic_content__first__logo {
+    display: block;
+  }
+  .graphic_content__first, .graphic_content__second {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 10% 40% 40% 10%;
+    background-color: #f9c546;
+  }
+  .graphic_content__first__title, .graphic_content__second__title {
+    margin: auto;
+    font-family: "Montserrat", sans-serif;
+    color: #F5EFFB;
+  }
+  .graphic_content__first__logo, .graphic_content__second__logo {
+    width: 100%;
+    background-color: #330066;
+  }
+  .graphic_content__first__logo__image, .graphic_content__second__logo__image {
+    margin: auto;
+    width: 100%;
+  }
+  .graphic_content__first__side1, .graphic_content__second__side1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: auto;
+  }
+  .graphic_content__first__side1__title, .graphic_content__second__side1__title {
+    display: flex;
+    align-items: flex-end;
+    color: #330066;
+    font-size: 45px;
+    font-weight: 700;
+  }
+  .graphic_content__first__side1__text, .graphic_content__second__side1__text {
+    font-size: 14px;
+  }
+  .graphic_content__first__side1__button, .graphic_content__second__side1__button {
+    background-color: #330066;
+    border: 1px solid #330066;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+.contact__text {
+  margin: auto;
+  padding-top: 3em;
+}
+
+/*# sourceMappingURL=style.css.map */

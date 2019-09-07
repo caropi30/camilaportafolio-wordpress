@@ -1,0 +1,130 @@
+.graphic__container {
+	padding-bottom: 3em;
+	background-color: $honey;
+}
+
+.graphic_content {
+		&__first__logo {
+			display: none;
+		}
+
+		&__first, &__second {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 10% 80% 10%;
+			background-color: $honey;
+
+			&__title {
+				margin: auto;
+				font-family: $montserrat;
+				color: $soft-pink;
+			}
+
+			&__logo {
+				width: 100%;
+				background-color: $purple-rain;
+
+				&__image {
+					margin:auto;
+					width: 100%;
+
+				}
+			}
+
+			&__side1 {
+				display:grid;
+				grid-template-rows: 1fr 1fr;
+				margin: auto;
+
+				&__title {
+					display: flex;
+					align-items: flex-end;
+					color: $purple-rain;
+					font-size: $xxxx-large;
+					font-weight: $bold;
+
+				}
+
+				&__text {
+					font-size: $small;
+				}
+
+				&__button {
+					background-color: $purple-rain;
+					border: 1px solid $purple-rain;
+					font-family: $montserrat;
+					font-size: $medium;
+					font-size: $small;
+					color: $white;
+				}
+
+			}
+		}
+
+	}
+
+
+@media (min-width: 768px) {
+	.graphic__container {
+		padding-bottom: 0;
+	}
+	.graphic_content {
+		&__first__logo {
+			display: block;
+		}
+
+		&__first, &__second {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 10% 40% 40% 10%;
+			background-color: $honey;
+
+			&__title {
+				margin: auto;
+				font-family: $montserrat;
+				color: $soft-pink;
+			}
+
+			&__logo {
+				width: 100%;
+				background-color: $purple-rain;
+
+				&__image {
+					margin:auto;
+					width: 100%;
+
+				}
+			}
+
+			&__side1 {
+				display:grid;
+				grid-template-rows: 1fr 1fr;
+				margin: auto;
+
+				&__title {
+					display: flex;
+					align-items: flex-end;
+					color: $purple-rain;
+					font-size: $xxxx-large;
+					font-weight: $bold;
+
+				}
+
+				&__text {
+					font-size: $small;
+				}
+
+				&__button {
+					background-color: $purple-rain;
+					border: 1px solid $purple-rain;
+					font-family: $montserrat;
+					font-size: $medium;
+					font-size: $small;
+					color: $white;
+				}
+
+			}
+		}
+
+	} 	
+}

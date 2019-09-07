@@ -1,0 +1,93 @@
+.services {
+	display: grid;
+	grid-template-rows: 2fr;
+	grid-template-columns: 20% 60% 20%;	
+	background-color: $white;
+	font-family: $montserrat;
+
+	&__readme {
+		display: grid;
+		grid-template-rows: 2fr;
+		margin: 2em;
+		text-align: center;
+		font-family: $montserrat;
+
+
+		@media (min-width: 320px) and (max-width: 768px) {		
+			margin: 0;
+
+			.container {
+				padding: 0;
+			}
+		}
+
+		&__title {
+			display: grid;
+			grid-template-rows: 2fr;
+			margin: auto;
+			color: $funny-pink;
+			font-family: $montserrat;
+
+
+			&__item {
+				display: flex;
+				flex-direction: row;
+				align-items: baseline;
+				align-content: center;
+				padding: 5px;
+				font-weight: $bold;
+				font-size: $xxxx-large;
+				color: $funny-pink;
+				padding: 10px;	
+				text-align: center;
+
+				&-higher {
+					font-weight: $bold;
+					
+					@media (min-width: 320px) and (max-width: 768px) {	
+						text-align: left;
+						padding-top: 1em;
+					}
+				}
+
+				&-medium {
+					font-weight: $extra-bold;
+					font-size: $xxxxx-large;
+					color: $funny-pink;	
+				}
+			}
+		}
+
+		&__text {
+			margin: 1em;
+			text-align: center;
+			
+			@media (min-width: 320px) and (max-width: 768px) {	
+				text-align: left;
+			}
+		}
+	}
+
+	&__items {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 33% 33% 33%;
+		padding: 2em;	
+		text-align: center;
+
+		&-icon {
+			width: 100%;
+			background-color: tomato;
+		}
+
+		&-text {
+			font-size: $medium;
+		}
+	}
+
+	@media (min-width: 320px) and (max-width: 768px) {		
+		display: grid;
+		grid-template-columns: 100%;
+	}
+
+}

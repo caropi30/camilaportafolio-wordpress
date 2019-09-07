@@ -1,0 +1,58 @@
+.hero {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 20% 60% 20%;	
+	background-color: $purple-rain;
+	font-family: $montserrat;
+
+	&__title {
+		padding: 10em;
+		text-align: center;
+
+		@media (min-width: 320px) and (max-width: 768px) {
+			padding: 0;
+		}
+
+		&-text- {
+
+			&upper {
+				color: $white;
+				font-weight: $light;
+				font-size: $xxx-large;
+				
+				@media (min-width: 320px) and (max-width: 768px) {
+					padding-top: 1em;
+				}
+
+			}
+
+			&lower {
+				color: $funny-pink;
+				font-weight: $extra-bold;
+				font-size: $xxxxx-large;
+				padding-bottom: 1em;
+
+				@media (min-width: 320px) {
+					font-size: 60px;
+				}
+			}
+
+			&-contact {
+				font-weight: $bold;
+				font-size: $xxxxx-large;
+				color: $purple-rain;
+			}
+		}
+
+	}
+
+	&--yellow {
+		background-color: $honey;
+	}
+
+	
+	@media (min-width: 320px) and (max-width: 768px) { 
+		display: grid;
+		grid-template-columns: 100%;
+	}
+}

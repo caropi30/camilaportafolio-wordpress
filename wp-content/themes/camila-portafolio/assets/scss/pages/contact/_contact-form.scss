@@ -1,0 +1,13 @@
+.contact {
+	font-family: $montserrat;
+
+	&__formo {	
+
+		input, textarea {
+			font-size: $small;
+			border: 1px solid $purple-rain;
+			background-color: $honey;
+			padding: 2em;
+		}
+	}
+}

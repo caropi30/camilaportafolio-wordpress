@@ -1,0 +1,67 @@
+/// Responder al ancho de pantalla de un dispositivo
+/// @param {string} $media [xs|sm|md|lg|xl] Tamaño de la pantalla a evaluar
+/// @output Media Query
+@mixin respond-to($media) {
+    @if $media == xs {
+        @media only screen and (max-width: 575.98px) { @content; }
+    }
+    @else if $media == sm {
+        @media only screen and (min-width: 576px) and (max-width: 767.98px) { @content; }        
+    }
+    @else if $media == md {
+        @media only screen and (min-width: 768px) and (max-width: 991.98px) { @content; }        
+    }
+    @else if $media == lg {
+        @media only screen and (min-width: 992px) and (max-width: 1199.98px) { @content; }       
+    }
+    @else if $media == xl {
+        @media only screen and (min-width: 1200px) { @content; }       
+    }
+}
+
+/// Responder al ancho de pantalla
+/// @param {string} $from-media [xs|sm|md|lg|xl] Tamaño de la pantalla a evaluar desde
+/// @param {string} $to-media [xs|sm|md|lg|xl] Tamaño de la pantalla a evaluar hasta
+/// @output Media Query
+@mixin respond($from-media, $to-media) {
+
+    $min-width: 0px;
+    $max-width: 0px;
+    $rule: '';
+
+    /// Declarar el ancho desde
+    @if $from-media == sm {
+        $min-width: 576px;
+    }
+    @else if $from-media == md {
+        $min-width: 768px;
+    }
+    @else if $from-media == lg {
+        $min-width: 992px;
+    }
+
+    /// Declarar el ancho hasta
+    @if $to-media == sm {
+        $max-width: 767.98px;
+    }
+    @else if $to-media == md {
+        $max-width: 991.98px;
+    }
+    @else if $to-media == lg {
+        $max-width: 1199.98px;        
+    }
+
+    /// Escribir la regla incluyendo desde-hasta
+    @if $min-width != 0px and $max-width != 0px {
+        $rule: 'min-width:' + $min-width + ') and (max-width:' + $max-width;
+    }
+    @else if $min-width == 0px {
+        $rule: 'max-width:' + $max-width;
+    }
+    @else {
+        $rule: 'min-width:' + $min-width;
+    }
+
+    /// @return
+    @media only screen and ($rule) { @content; }
+}

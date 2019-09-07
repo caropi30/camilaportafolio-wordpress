@@ -1,0 +1,72 @@
+.single {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 60% 40%;
+	font-family: $montserrat;
+	background-color: $honey;
+
+	&__rightside {
+		padding: 5em;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		background-color: $honey;
+		width: 100%;
+
+		&__image {
+			width: 100%;
+		}	
+	}
+
+	&__leftside {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		background-color: $white;
+		padding: 10em;
+
+		h3{
+			font-size: $x-large;
+		}
+
+		h2 {
+			font-size: $xxx-large;
+			font-weight: $bold;
+			padding-bottom: 1em;
+			color: $purple-rain;
+		}
+
+		@media (min-width: 320px) and (max-width: 768px) {		
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			background-color: $white;
+			padding: 10em;
+
+			h3{
+				font-size: $medium;
+			}
+
+			h2 {
+				font-size: $x-large;
+				font-weight: $bold;
+				padding-bottom: .5em;
+				color: $purple-rain;
+			}
+		}	
+	}
+
+	@media (min-width: 320px) and (max-width: 768px) {		
+		display: grid;
+		grid-template-rows: 2fr;
+		grid-template-columns: 100%;
+	}
+
+	@media (min-width: 992px) {
+		display: grid;
+		grid-template-rows: 2fr;
+		grid-template-columns: 100%;
+	}	
+}

@@ -1,0 +1,110 @@
+.portfolio {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 50% 50%;
+
+	&__title {
+		display: flex;
+		flex-direction: row;
+		align-items: baseline;
+		margin: auto;
+		color: $funny-pink;
+		font-family: $montserrat;
+
+		&__upper {
+			font-size: $xxxxx-large;
+			font-weight: $bold;
+
+			@media (min-width: 320px) and (max-width: 768px) {	
+				padding-top: 1em;
+			}
+		}
+
+		&__lower {
+			border-top: 1em solid $purple-rain;
+			padding-bottom: 20px;
+			font-size: $xxx-large;
+			font-weight: $bold;
+		}
+
+		@media (min-width: 320px) and (max-width: 768px) {		
+			display: inline;;
+		}
+
+	}
+
+	&__side {
+		display: grid;
+		grid-template-rows: 2fr;
+
+		&__menu {
+			display: grid;
+			grid-template-rows: 2fr;
+			background-color: $funny-pink;
+			color: $white;
+			font-family: $montserrat;
+			font-weight: $light;
+			font-size: $x-small;
+
+			&__list {
+				display: flex;
+				flex-direction: row;
+				list-style: none;
+				margin: auto;
+				align-items: baseline;
+				padding: 3em;
+
+				@media (min-width: 320px) and (max-width: 768px) {		
+					margin: 0;
+				}
+
+				&-item {
+					padding-right: 1em;
+					padding-left: 1em;
+					border-right: 1px solid $white;
+
+					@media (min-width: 320px) and (max-width: 768px) {		
+						border-right: none;
+					}
+				}
+
+				@media (min-width: 320px) and (max-width: 768px) {		
+					display: block;
+				}
+			}
+		}
+	}
+
+	&__lowerside {
+		display: grid;
+		grid-template-rows: 2fr;
+		padding: 2em;
+		background-color: $soft-pink;
+		font-family: $montserrat;
+
+		&__title {
+			font-weight: $bold;
+			color: $purple-rain;
+			padding-left: 1em;
+			font-size: $large;
+		}
+
+		&__logo {
+			display: flex;
+			flex-direction: flex-row;
+			justify-content: center;
+			align-items: center;
+			padding: 3em;
+			width: 100%;
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	@media (min-width: 320px) and (max-width: 768px) {		
+		display: grid;
+		grid-template-columns: 100%;
+	}
+}
